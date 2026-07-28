@@ -1,18 +1,17 @@
 name: Docker Build Test
 
 on:
-push:
-branches: [ "main" ]
+  push:
+    branches:
+      - main
 
 jobs:
-build-test:
-runs-on: ubuntu-latest
+  build-test:
+    runs-on: ubuntu-latest
 
-steps:
-- name: Mengambil Kode dari Repositori
-  uses: action/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-- name: Mengetes Build Docker Image
-  run:
-    docker build -t website-panji:latest .
-
+      - name: Build Docker Image
+        run: docker build -t website-panji:latest .
